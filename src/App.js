@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Header from './components/Header';
 import ListNews from './components/ListNews';
+import Form from './components/Form';
 class App extends Component {
   state = {
     news: []
@@ -24,6 +25,7 @@ class App extends Component {
         titleHeader='Noticias'
       />
       <div className="container white contenedor-noticias">
+        <Form/>
         <ListNews
           news={this.state.news}
         />
