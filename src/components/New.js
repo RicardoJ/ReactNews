@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 const New = ({ noticie }) => {
     //Extraer datos
     const { urlToImage, url, title, description, source } = noticie;
@@ -28,5 +28,7 @@ const New = ({ noticie }) => {
         </div>
     );
 }
-
+New.propTypes ={
+    noticie :PropTypes.object.isRequired
+}
 export default New;

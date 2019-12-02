@@ -10,8 +10,8 @@ class App extends Component {
   componentDidMount() {
     this.checkNews();
   }
-  checkNews = async () => {
-    const url = 'https://newsapi.org/v2/top-headlines?country=co&apiKey=272d682930b74cfb8cd566c0be00669a';
+  checkNews = async (category ='general') => {
+    const url = `https://newsapi.org/v2/top-headlines?country=co&category=${category}&apiKey=272d682930b74cfb8cd566c0be00669a`;
     const response = await fetch(url);
     const news = await response.json();
     this.setState({
@@ -25,7 +25,9 @@ class App extends Component {
         titleHeader='Noticias'
       />
       <div className="container white contenedor-noticias">
-        <Form/>
+        <Form
+        checkNews = {this.checkNews}
+        />
         <ListNews
           news={this.state.news}
         />
